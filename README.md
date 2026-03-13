@@ -1,6 +1,6 @@
 # claude-glm
 
-Одна команда для запуска [Claude Code](https://claude.ai/claude-code) с моделями [Z.AI GLM](https://bigmodel.cn) вместо Anthropic.
+Одна команда для запуска [Claude Code](https://claude.ai/claude-code) с моделями [Z.AI GLM](https://z.ai/subscribe?ic=JQKJ4LXBIX) вместо Anthropic.
 
 ## Требования
 
@@ -13,7 +13,7 @@
 npm install -g @anthropic-ai/claude-code
 ```
 
-Получить API ключ Z.AI: https://bigmodel.cn
+Получить API ключ Z.AI: https://z.ai/subscribe?ic=JQKJ4LXBIX
 
 ---
 
@@ -99,7 +99,7 @@ bash install.sh <API_KEY> glm-4.7
 | `glm-5` | Последняя версия, рекомендуется |
 | `glm-4.7` | Предыдущая стабильная версия |
 
-Полный список: https://bigmodel.cn/dev/api
+Полный список: https://z.ai/subscribe?ic=JQKJ4LXBIX
 
 ---
 
