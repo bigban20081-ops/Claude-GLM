@@ -6,10 +6,25 @@
 
 Перед установкой убедитесь, что установлен **Node.js** и **Claude Code**:
 
-```bash
-# 1. Установить Node.js (https://nodejs.org)
+**1. Установить Node.js**
 
-# 2. Установить Claude Code
+```bash
+# macOS (Homebrew)
+brew install node
+
+# Ubuntu / Debian
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Windows (winget)
+winget install OpenJS.NodeJS.LTS
+```
+
+Или скачать установщик: https://nodejs.org
+
+**2. Установить Claude Code**
+
+```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
