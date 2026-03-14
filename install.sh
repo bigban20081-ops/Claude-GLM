@@ -10,7 +10,7 @@
 set -e
 
 API_KEY="${1:-}"
-MODEL="${2:-glm-5}"
+MODEL="${2:-}"
 
 # ── Проверки ──────────────────────────────────────────────────────────────────
 
@@ -24,6 +24,22 @@ if [ -z "$API_KEY" ]; then
   echo "  bash install.sh xxxxxxxx.yyyyyyyy"
   echo "  bash install.sh xxxxxxxx.yyyyyyyy glm-4.7"
   exit 1
+fi
+
+# ── Выбор модели ──────────────────────────────────────────────────────────────
+
+if [ -z "$MODEL" ]; then
+  echo ""
+  echo "Выберите модель:"
+  echo "  1) glm-5   (рекомендуется, последняя версия)"
+  echo "  2) glm-4.7 (предыдущая стабильная версия)"
+  echo ""
+  printf "Ваш выбор [1/2] (по умолчанию: 1): "
+  read -r model_choice
+  case "$model_choice" in
+    2) MODEL="glm-4.7" ;;
+    *) MODEL="glm-5" ;;
+  esac
 fi
 
 if ! command -v claude &>/dev/null; then

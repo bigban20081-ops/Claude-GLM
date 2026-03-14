@@ -7,8 +7,8 @@ param(
     [Parameter(Mandatory = $true, HelpMessage = "Z.AI API ключ")]
     [string]$ApiKey,
 
-    [Parameter(HelpMessage = "Модель GLM (по умолчанию: glm-5)")]
-    [string]$Model = "glm-5"
+    [Parameter(HelpMessage = "Модель GLM: glm-5 или glm-4.7")]
+    [string]$Model = ""
 )
 
 # ── Проверки ──────────────────────────────────────────────────────────────────
@@ -23,6 +23,18 @@ if (-not (Get-Command claude -ErrorAction SilentlyContinue)) {
 Для установки Node.js: https://nodejs.org
 "@
     exit 1
+}
+
+# ── Выбор модели ──────────────────────────────────────────────────────────────
+
+if (-not $Model) {
+    Write-Host ""
+    Write-Host "Выберите модель:"
+    Write-Host "  1) glm-5   (рекомендуется, последняя версия)"
+    Write-Host "  2) glm-4.7 (предыдущая стабильная версия)"
+    Write-Host ""
+    $modelChoice = Read-Host "Ваш выбор [1/2] (по умолчанию: 1)"
+    if ($modelChoice -eq "2") { $Model = "glm-4.7" } else { $Model = "glm-5" }
 }
 
 # ── Файл профиля PowerShell ───────────────────────────────────────────────────
